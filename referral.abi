@@ -1,0 +1,164 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "configuregame",
+            "base": "",
+            "fields": [
+                {
+                    "name": "contract",
+                    "type": "name"
+                },
+                {
+                    "name": "fee_account",
+                    "type": "name"
+                },
+                {
+                    "name": "reward_per",
+                    "type": "string"
+                },
+                {
+                    "name": "chain_length",
+                    "type": "uint8"
+                },
+                {
+                    "name": "for_games",
+                    "type": "uint8"
+                },
+                {
+                    "name": "till_reward",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "game",
+            "base": "",
+            "fields": [
+                {
+                    "name": "contract",
+                    "type": "name"
+                },
+                {
+                    "name": "fee_account",
+                    "type": "name"
+                },
+                {
+                    "name": "reward_per",
+                    "type": "string"
+                },
+                {
+                    "name": "chain_length",
+                    "type": "uint8"
+                },
+                {
+                    "name": "for_games",
+                    "type": "uint8"
+                },
+                {
+                    "name": "till_reward",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "refer",
+            "base": "",
+            "fields": [
+                {
+                    "name": "account",
+                    "type": "name"
+                },
+                {
+                    "name": "refer_chain",
+                    "type": "name[]"
+                },
+                {
+                    "name": "r_games",
+                    "type": "uint8"
+                },
+                {
+                    "name": "r_reward",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "referred",
+            "base": "",
+            "fields": [
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "from",
+                    "type": "name"
+                },
+                {
+                    "name": "gameAcct",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "transferfee",
+            "base": "",
+            "fields": [
+                {
+                    "name": "from",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "configuregame",
+            "type": "configuregame",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "referred",
+            "type": "referred",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "transferfee",
+            "type": "transferfee",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "game",
+            "type": "game",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "refer",
+            "type": "refer",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": []
+}
