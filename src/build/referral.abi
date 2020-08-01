@@ -4,10 +4,40 @@
     "types": [],
     "structs": [
         {
+            "name": "accountg",
+            "base": "",
+            "fields": [
+                {
+                    "name": "account",
+                    "type": "name"
+                },
+                {
+                    "name": "games",
+                    "type": "string[]"
+                },
+                {
+                    "name": "contracts",
+                    "type": "string[]"
+                },
+                {
+                    "name": "t_reward",
+                    "type": "asset"
+                },
+                {
+                    "name": "t_plays",
+                    "type": "uint8"
+                }
+            ]
+        },
+        {
             "name": "configuregame",
             "base": "",
             "fields": [
                 {
+                    "name": "game_name",
+                    "type": "string"
+                },
+                {
                     "name": "contract",
                     "type": "name"
                 },
@@ -34,10 +64,14 @@
             ]
         },
         {
-            "name": "game",
+            "name": "gameacc",
             "base": "",
             "fields": [
                 {
+                    "name": "game_name",
+                    "type": "string"
+                },
+                {
                     "name": "contract",
                     "type": "name"
                 },
@@ -60,11 +94,43 @@
                 {
                     "name": "till_reward",
                     "type": "asset"
+                },
+                {
+                    "name": "accs",
+                    "type": "uint8"
                 }
             ]
         },
         {
-            "name": "refer",
+            "name": "pair_name_uint8",
+            "base": "",
+            "fields": [
+                {
+                    "name": "key",
+                    "type": "name"
+                },
+                {
+                    "name": "value",
+                    "type": "uint8"
+                }
+            ]
+        },
+        {
+            "name": "pair_uint32_asset",
+            "base": "",
+            "fields": [
+                {
+                    "name": "key",
+                    "type": "uint32"
+                },
+                {
+                    "name": "value",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "referacc",
             "base": "",
             "fields": [
                 {
@@ -82,6 +148,14 @@
                 {
                     "name": "r_reward",
                     "type": "asset"
+                },
+                {
+                    "name": "me_chains",
+                    "type": "pair_name_uint8[]"
+                },
+                {
+                    "name": "dates",
+                    "type": "pair_uint32_asset[]"
                 }
             ]
         },
@@ -145,15 +219,22 @@
     ],
     "tables": [
         {
-            "name": "game",
-            "type": "game",
+            "name": "accountg",
+            "type": "accountg",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
         },
         {
-            "name": "refer",
-            "type": "refer",
+            "name": "gameacc",
+            "type": "gameacc",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "referacc",
+            "type": "referacc",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

@@ -112,6 +112,7 @@ def test():
     contract.push_action(
         "configuregame",
         {
+            "game_name":"Battles of Humanity",
             "contract": gameaccount,
             "fee_account": feeaccount,
             "reward_per":"5.00",
@@ -214,8 +215,8 @@ def test():
     #     },
     #     [gameaccount]
     # )
-    gamereferral.table("game", gamereferral)
-    gamereferral.table("refer", gameaccount)
+    gamereferral.table("gameacc", gamereferral)
+    gamereferral.table("referacc", gameaccount)
 
     COMMENT('''
         Transfer from gameaccount to gamereferral (all gamefee)
@@ -242,19 +243,20 @@ def test():
     #     [gameaccount]
     # )
 
-    gamereferral.table("game", gamereferral)
-    gamereferral.table("refer", gameaccount)
+    gamereferral.table("gameacc", gamereferral)
+    gamereferral.table("referacc", gameaccount)
+    gamereferral.table("accountg", gameaccount)
 
 
     COMMENT('''Expected: 9900 WAX''')
     eosiotoken.table("accounts", "gameaccount")
-    COMMENT('''Expected: 1 WAX''')
+    COMMENT('''Expected: 0.25 WAX''')
     eosiotoken.table("accounts", "feeaccount")
 
-    COMMENT('''Expected: 9 WAX''')
+    COMMENT('''Expected: 4.75 WAX''')
     eosiotoken.table("accounts", "bob")
 
-    COMMENT('''Expected: 90 WAX''')
+    COMMENT('''Expected: 95 WAX''')
     eosiotoken.table("accounts", "alice")
 
 
