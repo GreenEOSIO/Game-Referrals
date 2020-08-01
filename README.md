@@ -1,19 +1,25 @@
 ## Game Referral
 
-The contracts deployed on WAX mainnet is:`gamereferral`
+This is an open source smart contract for managing the referrals and pay the referral reward directly to the players via this smart contract.
 
+The contracts is currently deployed on:
 
-### Architecture
+<b>WAX mainnet</b> -> [gamereferral](https://wax.bloks.io/account/gamereferral?loadContract=true&tab=Tables&account=gamereferral&limit=100)              
+
+### ARCHITECTURE
 We use the pyramid model to give rewards to both direct as well as indirect referrals. 
-Consider chain:  Alice->Bob->Charlie (Alice refers Bob, Bob refers Charlie)
-In this case, if Charlie plays a game, Bob (direct referrer) receives reward (x%) as well as Charlie recieves (x% of the remaining). For 100 WAX referral reward means, Bob receives 95 WAX and Charlie receives 5 WAX.
-There is no overdrawn balance, the x% is adjusted by the immediate chain holder only (in above case by Bob). 
 
-### Actions:
+Consider chain:  Alice->Bob->Charlie (Alice refers Bob, Bob refers Charlie)
+
+In this case, if Charlie plays a game, Bob (direct referrer) receives reward (x%) as well as Charlie recieves (x% of the remaining). For 100 WAX referral reward means, Bob receives 95 WAX and Charlie receives 5 WAX.
+
+There can be no overdrawn balance, the x% is adjusted by the next immediate chain account only (in above case by Bob). 
+
+### ACTIONS:
 
 * `configuregame`: callable by game account once or later to change game referral rules. 
-* `referred` : should be called once by referred account `to` stating the account name that referred `from` and the game account `gameAcct`.
-* `transferfee` : should be called by the game account sending the game fee to be used for giving referral rewards. Memo shoud contain the `game_id,account name` to which referral reward is to be given.
+* `referred` : should be called once by referred account `to` stating the account name that referred `from` and the game account `gameAcct`. This shall be integrated in the frontend of your dapp.
+* `transferfee` : should be called by the game account sending the game fee to be used for giving referral rewards. Memo shoud contain the `game_id,account name` to which referral reward is to be given. This shall be integrated in your game smart contract where you transfer the game fee to your account. 
 
 #### configuregame
    
@@ -45,7 +51,7 @@ ACTION referred (name to,
 * `gameAcct`: game account name 
 
 
-#### referred
+#### transferfee
 
 ```
 ACTION transferfee (name from,
@@ -59,8 +65,7 @@ ACTION transferfee (name from,
 * `memo`: should be in format `GAME_ID, PLAYER_ACCOUNT`. Note this should be sent in correct format.
 
 
-
-### Data Structures
+### TABLES
 
 #### game
 ```
@@ -75,7 +80,7 @@ TABLE game {
 ```
 Scope is _self.
 
-#### categories
+#### refer
 ```
 TABLE refer {
     name account;
@@ -86,4 +91,3 @@ TABLE refer {
 ```
 Scope is your game account name.
   
-
